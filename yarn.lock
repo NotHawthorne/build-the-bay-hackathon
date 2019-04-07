@@ -1071,6 +1071,11 @@ amazon-cognito-identity-js@^3.0.10:
     crypto-js "^3.1.9-1"
     js-cookie "^2.1.4"
 
+amplify@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/amplify/-/amplify-0.0.11.tgz#fd81c7068c862823f2508b8f3c650eb76753f58c"
+  integrity sha1-/YHHBoyGKCPyUIuPPGUOt2dT9Yw=
+
 ansi-colors@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.1.0.tgz#6374b4dd5d4718ff3ce27a671a3b1cad077132a9"

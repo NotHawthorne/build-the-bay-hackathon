@@ -6,6 +6,49 @@ features:
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              dislikes: S
+              likes: S
+              neutral: S
+            hashKeyName: email
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-prefs
+            tablePrivacy: public
+            indexes: []
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes: {}
+            hashKeyName: a
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-test
+            tablePrivacy: public
+            indexes: []
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              email: S
+              personName: S
+              phone: S
+            hashKeyName: teamId
+            hashKeyType: S
+            rangeKeyName: personId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
+            tablePrivacy: public
+            indexes:
+              - !com.amazonaws.mobilehub.v0.NoSQLIndex 
+                hashKeyName: teamId
+                hashKeyType: S
+                rangeKeyName: personName
+                rangeKeyType: S
+                indexName: personName-index
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
@@ -27,5 +70,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-name: app-2019-04-06-22-43-18
+name: app-2019-04-07-01-37-51
 region: us-east-1
