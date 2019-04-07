@@ -2,5 +2,5 @@
 	"SourceDir": ".",
 	"DistributionDir": "/",
 	"BuildCommand": "npm run-script build",
-	"StartCommand": "expo start"
+	"StartCommand": "npm start --config=rn-cli.config.js"
 }

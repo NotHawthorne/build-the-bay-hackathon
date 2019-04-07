@@ -1,5 +1,39 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      prefsCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: prefsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /prefs: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/prefs-20190407220119.zip
+            description: 'Handler for calls to resource path : /prefs/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: TaKr3MC/HITLR6DH3RZcIkw7/ONeTudpJU+IJpiqShA=
+            memorySize: '128'
+            modified: '2019-04-07T22:02:23.183+0000'
+            name: prefs
+            runtime: nodejs6.10
+            timeout: '3'
+            version: LVlfeoR4ObN9T2G2LjemVwVfQn7aCP4.
+          '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/prefs-20190407220119.zip
+            description: 'Handler for calls to resource path : /prefs/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: TaKr3MC/HITLR6DH3RZcIkw7/ONeTudpJU+IJpiqShA=
+            memorySize: '128'
+            modified: '2019-04-07T22:02:23.183+0000'
+            name: prefs
+            runtime: nodejs6.10
+            timeout: '3'
+            version: sUOrKy1ya7nSBK09Yj_r2fHCjE6ugIMQ
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -13,6 +47,7 @@ features:
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               dislikes: S
+              email: S
               likes: S
               neutral: S
             hashKeyName: email
@@ -21,34 +56,35 @@ features:
             rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-prefs
             tablePrivacy: public
-            indexes: []
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
-            attributes: {}
+            attributes:
+              a: S
             hashKeyName: a
             hashKeyType: S
             rangeKeyName: ''
             rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-test
             tablePrivacy: public
-            indexes: []
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               email: S
+              personId: S
               personName: S
               phone: S
+              teamId: S
             hashKeyName: teamId
             hashKeyType: S
-            rangeKeyName: personId
-            rangeKeyType: S
-            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
-            tablePrivacy: public
             indexes:
               - !com.amazonaws.mobilehub.v0.NoSQLIndex 
                 hashKeyName: teamId
                 hashKeyType: S
+                indexName: personName-index
                 rangeKeyName: personName
                 rangeKeyType: S
-                indexName: personName-index
+            rangeKeyName: personId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
+            tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
@@ -70,26 +106,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
-    components:
-      prefsCRUD: !com.amazonaws.mobilehub.v0.API 
-        attributes:
-          name: prefsCRUD
-          requires-signin: true
-        paths:
-          /prefs: !com.amazonaws.mobilehub.v0.Function 
-            name: prefs
-            codeFilename: uploads/prefs.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
-          '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            name: prefs
-            codeFilename: uploads/prefs.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
 name: app-2019-04-07-01-37-51
 region: us-east-1

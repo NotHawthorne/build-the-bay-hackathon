@@ -16,6 +16,7 @@
     "aws-amplify": "^1.1.24",
     "aws-amplify-react-native": "^2.1.9",
     "expo": "^32.0.0",
+    "opencollective-postinstall": "^2.0.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-navigation": "^3.0.9"
