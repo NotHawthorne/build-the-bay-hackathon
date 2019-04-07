@@ -1,0 +1,15 @@
+Path to be used on API for get and remove an object should be like:
+/prefs/object/:email
+
+Path to be used on API for list objects on get method should be like:
+/prefs/:email
+
+JSON to be used as data on put request should be like:
+{
+  "dislikes": "INSERT VALUE HERE",
+  "likes": "INSERT VALUE HERE",
+  "neutral": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke prefsCRUD <method> <path> [init]

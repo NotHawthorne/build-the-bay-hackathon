@@ -70,5 +70,26 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      prefsCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: prefsCRUD
+          requires-signin: true
+        paths:
+          /prefs: !com.amazonaws.mobilehub.v0.Function 
+            name: prefs
+            codeFilename: uploads/prefs.zip
+            handler: lambda.handler
+            enableCORS: true
+            runtime: nodejs6.10
+            environment: {}
+          '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            name: prefs
+            codeFilename: uploads/prefs.zip
+            handler: lambda.handler
+            enableCORS: true
+            runtime: nodejs6.10
+            environment: {}
 name: app-2019-04-07-01-37-51
 region: us-east-1
