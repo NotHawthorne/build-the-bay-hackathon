@@ -20,7 +20,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
             [Insert Preference switches here]
            </Text>
-           <Switch onValueChange = {console.log("Switch it up")}/>
+           <Switch onValueChange = {value ^= true}/>
          </View>
         </ScrollView>
     </View>
