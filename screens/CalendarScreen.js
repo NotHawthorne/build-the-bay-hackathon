@@ -16,15 +16,18 @@ export default class CalendarScreen extends React.Component {
       <ScrollView style={styles.container}>
         {/* Calendar layout */}
         <Text>Calendar will end up here one day... but for now as a test... if we make long strings... what happens?</Text>
-        <View style={{ flex: 1, flexDirection: "row", alignSelf: "stretch" }}>
-	        <View style={{ flex: 1, alignSelf: 'stretch', alignItems: 'center' }}>
-            <Text>entry one</Text>
+        <View style={tableHeader}>
+	        <View style={tableTop}>
+            <Text>What?</Text>
           </View>
-	        <View style={{ flex: 1, alignSelf: 'stretch', alignItems: 'center' }}> 
-            <Text>entry two</Text>
+	        <View style={tableTop}>
+            <Text>Yea</Text>
           </View>
-	        <View style={{ flex: 1, alignSelf: 'stretch', alignItems: 'center' }}>
-            <Text>entry three</Text>
+	        <View style={tableTop}> 
+            <Text>Meh</Text>
+          </View>
+	        <View style={tableTop}>
+            <Text>Nah</Text>
           </View>
         </View>
       </ScrollView>
@@ -37,5 +40,15 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  tableHeader: {
+    flex: 1,
+    flexDirection: "row",
+    alignSelf: "stretch",
+  },
+  tableTop: {
+    flex: 1,
+    alignSelf: 'stretch',
+    alignItems: 'center',
   },
 });
