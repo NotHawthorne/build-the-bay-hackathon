@@ -20,13 +20,6 @@ export default class SettingsScreen extends React.Component {
             [Insert Preference switches here]
            </Text>
          </View>
-
-         <View style={styles.container}>
-           <Text style={styles.settingsText}>
-             Select your preferences!!!
-           </Text>
-
-          </View>
         </ScrollView>
     </View>
 

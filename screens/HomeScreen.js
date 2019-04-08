@@ -20,15 +20,6 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
-
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
@@ -62,6 +53,13 @@ export default class HomeScreen extends React.Component {
           </View>
         </ScrollView>
 
+        <View style={styles.tabBarInfoContainer}>
+          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+
+          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
+          </View>
+        </View>
       </View>
     );
   }
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
   },
   tabBarInfoContainer: {
     position: 'absolute',
-    bottom: 0,
+    top: 0,
     left: 0,
     right: 0,
     ...Platform.select({
