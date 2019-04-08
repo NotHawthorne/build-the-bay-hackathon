@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-//import { ExpoCalendarView } from '@expo/samples';
 
 export default class CalendarScreen extends React.Component {
   static navigationOptions = {

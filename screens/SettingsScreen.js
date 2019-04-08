@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -6,8 +7,6 @@ export default class SettingsScreen extends React.Component {
   };
 
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
@@ -66,4 +65,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,
   }
-})
+});
