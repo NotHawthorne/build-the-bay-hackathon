@@ -16,17 +16,17 @@ export default class CalendarScreen extends React.Component {
       <ScrollView style={styles.container}>
         {/* Calendar layout */}
         <Text>Calendar will end up here one day... but for now as a test... if we make long strings... what happens?</Text>
-        <View style={tableHeader}>
-	        <View style={tableTop}>
+        <View style={styles.tableHeader}>
+	        <View style={styles.tableTop}>
             <Text>What?</Text>
           </View>
-	        <View style={tableTop}>
+	        <View style={styles.tableTop}>
             <Text>Yea</Text>
           </View>
-	        <View style={tableTop}> 
+	        <View style={styles.tableTop}> 
             <Text>Meh</Text>
           </View>
-	        <View style={tableTop}>
+	        <View style={styles.tableTop}>
             <Text>Nah</Text>
           </View>
         </View>
