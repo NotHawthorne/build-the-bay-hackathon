@@ -24,7 +24,6 @@ export default class SettingsScreen extends React.Component {
          </View>
         </ScrollView>
     </View>
-
     );
   }
 }
