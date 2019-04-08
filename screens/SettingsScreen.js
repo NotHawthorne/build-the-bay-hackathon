@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Slider,
   Platform,
   ScrollView,
   StyleSheet,
@@ -27,9 +26,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
              Select your preferences!!!
            </Text>
-           <Slider>
-             Option 1
-           </Slider>
+
           </View>
         </ScrollView>
 
