@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Slider,
   Platform,
   ScrollView,
   StyleSheet,
@@ -9,7 +10,7 @@ import {
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Preferences',
+    title: '?!🍣🍕🌮🍮🍻🍦!?',
   };
 
   render() {
@@ -17,9 +18,8 @@ export default class SettingsScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container}>
          <View style={styles.container}>
-           <Text style={style.settingsText}>
-           ?!🍣🍕🌮🍮🍻🍦!?
-           whatchu want fool
+           <Text style={styles.settingsText}>
+            [Insert Preference switches here]
            </Text>
          </View>
 
@@ -27,6 +27,9 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
              Select your preferences!!!
            </Text>
+           <Slider>
+             Option 1
+           </Slider>
           </View>
         </ScrollView>
 
