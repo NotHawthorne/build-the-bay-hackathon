@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -29,10 +28,6 @@ export default class SettingsScreen extends React.Component {
 
           </View>
         </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.settingsText}>What are we putting in this bottom bar, anything?</Text>
-      </View>
     </View>
 
     );
@@ -51,24 +46,4 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'center',
   },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  }
 });
