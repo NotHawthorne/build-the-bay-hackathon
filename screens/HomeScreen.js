@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Button,
   Image,
   Platform,
   ScrollView,
@@ -11,11 +12,38 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import Amplify, { API } from 'aws-amplify';
+import awsmobile from '../aws-exports';
+import { Auth } from 'aws-amplify'
+
+Amplify.configure(awsmobile);
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  state = {
+    apiResponse: null,
+    noteId: ''
+  };
+
+  handleChangeNoteId = (event) => {
+    this.setState({noteId: event});
+  }
+
+  async getNote() {
+    console.log("testing WORLD!!! ");
+    user = await Auth.currentAuthenticatedUser();
+    const path = "/prefs/" + user.attributes.email;
+    try {
+      const apiResponse = await API.get("prefsCRUD", path);
+      console.log("response from getting note: " + apiResponse[0].likes);
+      this.setState({apiResponse});
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   render() {
     return (
@@ -45,6 +73,11 @@ export default class HomeScreen extends React.Component {
               Change this text and your app will automatically reload.
             </Text>
           </View>
+
+	  <View>
+	    <Button title="Send Request" onPress={this.getNote.bind(this)} />
+	    <Text>Response: {this.state.apiResponse && JSON.stringify(this.state.apiResponse)}</Text>
+	  </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>

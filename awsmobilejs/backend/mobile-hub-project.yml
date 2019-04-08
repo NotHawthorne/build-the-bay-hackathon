@@ -9,31 +9,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /prefs: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190407224128.zip
+            codeFilename: uploads/prefs-20190408071125.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 5sCmhIYInA08JeWLZQ8OxjJFx15887vvnsg/+QJ5HeQ=
+            hashcode: 8LQkYxvUMT6CxRds+JvybsoWbUv3VfoghdmZlHUe76k=
             memorySize: '128'
-            modified: '2019-04-07T22:42:26.844+0000'
+            modified: '2019-04-08T07:12:27.284+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: 6UjF_.XzA8JSm_rEAAl6HL5NgCfgsC6Q
+            version: xPldJIZc2FqqGRtdRHQciPm4UQJVI_8W
           '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190407224128.zip
+            codeFilename: uploads/prefs-20190408071125.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 5sCmhIYInA08JeWLZQ8OxjJFx15887vvnsg/+QJ5HeQ=
+            hashcode: 8LQkYxvUMT6CxRds+JvybsoWbUv3VfoghdmZlHUe76k=
             memorySize: '128'
-            modified: '2019-04-07T22:42:26.844+0000'
+            modified: '2019-04-08T07:12:27.284+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: ow1_dX9dPitMpC1.rF8wnY0lXIt9ysDd
+            version: W0OXJDek1DAMSDbxbXDx9q3ByAfS49zM
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -55,6 +55,18 @@ features:
             rangeKeyName: ''
             rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-prefs
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              dislikes: S
+              email: S
+              likes: S
+              neutral: S
+            hashKeyName: email
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-user_prefs
             tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
