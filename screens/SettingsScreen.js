@@ -1,5 +1,12 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+ } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
