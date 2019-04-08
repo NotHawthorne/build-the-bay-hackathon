@@ -14,9 +14,38 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../aws-exports';
-import { Auth } from 'aws-amplify'
+import { Auth } from 'aws-amplify';
+import { FileSystem } from 'expo'
 
 Amplify.configure(awsmobile);
+
+function intializeUser() {
+	user = Auth.currentAuthenticatedUser();
+	const path = "/prefs";
+	response = ""
+	try {
+		fs.readFile('../categories.txt', (err, data) => {
+			if (err) throw err;
+			let newVals = {
+				body: {
+					"email": user.attributes.email,
+					"likes": "",
+					"dislikes": "",
+					"neutral": data
+				}
+			}
+			try {
+				const apiResponse = API.put("prefsCRUD", path, newVals);
+				console.log("response from saving note: " + apiResponse);
+				response = apiResponse;
+			} catch (e) {
+				console.log(e);
+			}
+		})
+	} catch (e) {
+		console.log(e);
+	}
+}
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -33,13 +62,29 @@ export default class HomeScreen extends React.Component {
   }
 
   async getNote() {
-    console.log("testing WORLD!!! ");
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
       const apiResponse = await API.get("prefsCRUD", path);
-      console.log("response from getting note: " + apiResponse[0].likes);
+      console.log("response from getting note: " + JSON.stringify(apiResponse));
       this.setState({apiResponse});
+      if (typeof apiResponse[0] == "undefined") {
+		let newVals = {
+		body: {
+			"email": user.attributes.email.trim(),
+			"likes": " ",
+			"dislikes": " ",
+			"neutral": "american,mexican,chinese,japanese,italian,korean,thai,african,turkish,persian,venezuelan,vietnamese,fast food,dine-in,cafe,coffee,donuts,burgers,pizza,wings,sandwiches,chicken,markets,locksmith,photography,ice cream,desserts,hotels,bars,educational,business,bakery,food truck,delivery,tea,vegan,vegetarian,gluten-free,keto,natural,beauty,grocer,international,wine and spirits,hawaiian,guatemalan,steak,breakfast,late-night,always-open,specialty,lactose-free,locally sourced,diabetic,halal,kosher,arts,venues,concerts,music stores,middle eastern,south american,hookah,tobacco,ramen,sushi,dim sum,deli,german,french,flea market,farmers market,food bank,charity,thrift store,pet store"
+		}}
+		try {
+			const pathTwo = "/prefs"
+			const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
+			this.setState({apiResponseTwo});
+		} catch (e) {
+			console.log(e);
+		} 
+	    console.log("initialized user " + user.attributes.email);
+      }
     } catch (e) {
       console.log(e);
     }
