@@ -75,7 +75,8 @@ export default class HomeScreen extends React.Component {
             "likes": " ",
             "dislikes": " ",
             "neutral": "american,mexican,chinese,japanese,italian,korean,thai,african,turkish,persian,venezuelan,vietnamese,fast food,dine-in,cafe,coffee,donuts,burgers,pizza,wings,sandwiches,chicken,markets,locksmith,photography,ice cream,desserts,hotels,bars,educational,business,bakery,food truck,delivery,tea,vegan,vegetarian,gluten-free,keto,natural,beauty,grocer,international,wine and spirits,hawaiian,guatemalan,steak,breakfast,late-night,always-open,specialty,lactose-free,locally sourced,diabetic,halal,kosher,arts,venues,concerts,music stores,middle eastern,south american,hookah,tobacco,ramen,sushi,dim sum,deli,german,french,flea market,farmers market,food bank,charity,thrift store,pet store"
-          }}
+          }
+        }
         try {
           const pathTwo = "/prefs"
           const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
@@ -85,7 +86,7 @@ export default class HomeScreen extends React.Component {
           console.log(e);
         }
         console.log("initialized user " + user.attributes.email);
-        getNote();
+        this.getNote();
       }
     } catch (e) {
       console.log(e);
