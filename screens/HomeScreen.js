@@ -69,21 +69,23 @@ export default class HomeScreen extends React.Component {
       console.log("response from getting note: " + JSON.stringify(apiResponse));
       this.setState({apiResponse});
       if (typeof apiResponse[0] == "undefined") {
-		let newVals = {
-		body: {
-			"email": user.attributes.email.trim(),
-			"likes": " ",
-			"dislikes": " ",
-			"neutral": "american,mexican,chinese,japanese,italian,korean,thai,african,turkish,persian,venezuelan,vietnamese,fast food,dine-in,cafe,coffee,donuts,burgers,pizza,wings,sandwiches,chicken,markets,locksmith,photography,ice cream,desserts,hotels,bars,educational,business,bakery,food truck,delivery,tea,vegan,vegetarian,gluten-free,keto,natural,beauty,grocer,international,wine and spirits,hawaiian,guatemalan,steak,breakfast,late-night,always-open,specialty,lactose-free,locally sourced,diabetic,halal,kosher,arts,venues,concerts,music stores,middle eastern,south american,hookah,tobacco,ramen,sushi,dim sum,deli,german,french,flea market,farmers market,food bank,charity,thrift store,pet store"
-		}}
-		try {
-			const pathTwo = "/prefs"
-			const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
-			this.setState({apiResponseTwo});
-		} catch (e) {
-			console.log(e);
-		} 
-	    console.log("initialized user " + user.attributes.email);
+        let newVals = {
+          body: {
+            "email": user.attributes.email.trim(),
+            "likes": " ",
+            "dislikes": " ",
+            "neutral": "american,mexican,chinese,japanese,italian,korean,thai,african,turkish,persian,venezuelan,vietnamese,fast food,dine-in,cafe,coffee,donuts,burgers,pizza,wings,sandwiches,chicken,markets,locksmith,photography,ice cream,desserts,hotels,bars,educational,business,bakery,food truck,delivery,tea,vegan,vegetarian,gluten-free,keto,natural,beauty,grocer,international,wine and spirits,hawaiian,guatemalan,steak,breakfast,late-night,always-open,specialty,lactose-free,locally sourced,diabetic,halal,kosher,arts,venues,concerts,music stores,middle eastern,south american,hookah,tobacco,ramen,sushi,dim sum,deli,german,french,flea market,farmers market,food bank,charity,thrift store,pet store"
+          }}
+        try {
+          const pathTwo = "/prefs"
+          const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
+          this.setState({apiResponseTwo});
+        }
+        catch (e) {
+          console.log(e);
+        }
+        console.log("initialized user " + user.attributes.email);
+        getNote();
       }
     } catch (e) {
       console.log(e);
@@ -119,10 +121,11 @@ export default class HomeScreen extends React.Component {
             </Text>
           </View>
 
-	  <View>
-	    <Button title="Send Request" onPress={this.getNote.bind(this)} />
-	    <Text>Response: {this.state.apiResponse && JSON.stringify(this.state.apiResponse)}</Text>
-	  </View>
+          {/* Testing Database Call Button */}
+          <View>
+            <Button title="Send Request" onPress={this.getNote.bind(this)} />
+            <Text>Response: {this.state.apiResponse && JSON.stringify(this.state.apiResponse)}</Text>
+          </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
@@ -130,14 +133,6 @@ export default class HomeScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
       </View>
     );
   }
