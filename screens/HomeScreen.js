@@ -86,7 +86,6 @@ export default class HomeScreen extends React.Component {
           console.log(e);
         }
         console.log("initialized user " + user.attributes.email);
-        this.getNote();
       }
     } catch (e) {
       console.log(e);
