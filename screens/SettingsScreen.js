@@ -1,14 +1,43 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {
+  Switch,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+ } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    title: '?!🍣🍕🌮🍮🍻🍦!?',
   };
 
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container}>
+         <View style={styles.container}>
+           <Text style={styles.settingsText}>
+            [Insert Preference switches here]
+           </Text>
+           <Switch onValueChange = {console.log(this.state)} value = {true}/>
+         </View>
+        </ScrollView>
+    </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  settingsText: {
+    marginBottom: 20,
+    color: 'rgba(0,0,0,0.4)',
+    fontSize: 14,
+    lineHeight: 19,
+    textAlign: 'center',
+  },
+});
