@@ -129,7 +129,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
             [Insert Preference switches here]
            </Text>
-           <Switch title="thai" onValueChange = {this.getPref() && this.state.apiResponse.body.thai = !this.state.apiResponse.body.thai} value = {this.state.apiResponse.body.thai}/>
+           <Switch title="thai" onValueChange = {this.getPref() && (this.state.apiResponse.body.thai = !this.state.apiResponse.body.thai)} value = {this.state.apiResponse.body.thai}/>
            <Text>Response: {this.state.apiResponse.body.thai && JSON.stringify(this.state.apiResponse.body.thai)}</Text>
          </View>
         </ScrollView>
