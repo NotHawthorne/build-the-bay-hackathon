@@ -120,7 +120,7 @@ export default class SettingsScreen extends React.Component {
     }
   }
   async handleSwitch() {
-    while (this.state.apiResponse == null) {
+    while (!this.state.apiResponse) {
       this.getPref();
     }
     console.log("handleSwitch: " + JSON.stringify(this.apiResponse.body.thai));
@@ -136,7 +136,7 @@ export default class SettingsScreen extends React.Component {
            </Text>
            <Switch
             title="thai" onValueChange = {this.handleSwitch.bind(this)}/>
-           <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text>
+           {/* <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text> */}
          </View>
         </ScrollView>
     </View>
