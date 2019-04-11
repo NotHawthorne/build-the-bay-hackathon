@@ -6,7 +6,7 @@ import {
   Text,
   View,
  } from 'react-native';
- 
+
  import Amplify, { API } from 'aws-amplify';
  import { Auth } from 'aws-amplify';
 export default class SettingsScreen extends React.Component {
@@ -19,7 +19,7 @@ export default class SettingsScreen extends React.Component {
     const path = "/prefs/" + user.attributes.email;
     try {
       const apiResponse = await API.get("prefsCRUD", path);
-      console.log("response from getting note: " + JSON.stringify(this.apiResponse));
+      console.log("response from getting note begin: " + JSON.stringify(this.apiResponse));
       this.setState({apiResponse});
       if (typeof apiResponse[0] == "undefined") {
         let newVals = {
@@ -109,6 +109,7 @@ export default class SettingsScreen extends React.Component {
           const pathTwo = "/prefs"
           const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
           this.setState({apiResponseTwo});
+          console.log("response from apiRepsonseTwo: " + JSON.stringify(this.apiResponseTwo));
         }
         catch (e) {
           console.log(e);
@@ -128,7 +129,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
             [Insert Preference switches here]
            </Text>
-           <Switch title="thai" onValueChange = {this.state.apiResponse.body.thai = !this.state.apiResponse.body.thai} value = {this.state.apiResponse.body.thai}/>
+           <Switch title="thai" onValueChange = {this.getPref() && this.state.apiResponse.body.thai = !this.state.apiResponse.body.thai} value = {this.state.apiResponse.body.thai}/>
            <Text>Response: {this.state.apiResponse.body.thai && JSON.stringify(this.state.apiResponse.body.thai)}</Text>
          </View>
         </ScrollView>
