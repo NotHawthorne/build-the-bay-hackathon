@@ -6,13 +6,15 @@ import {
   Text,
   View,
  } from 'react-native';
-
+ 
+ import Amplify, { API } from 'aws-amplify';
+ import { Auth } from 'aws-amplify';
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: '?!🍣🍕🌮🍮🍻🍦!?',
   };
 
-  async getPref(value) {
+  async getPref() {
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
@@ -23,6 +25,7 @@ export default class SettingsScreen extends React.Component {
         let newVals = {
           body: {
             "email": user.attributes.email.trim(),
+            "userlvl": 0,
             "american": false,
             "mexican": false,
             "chinese": false,
@@ -37,7 +40,7 @@ export default class SettingsScreen extends React.Component {
             "vietnamese": false,
             "fast": false,
             "food": false,
-            "dine-in": false,
+            "dine_in": false,
             "cafe": false,
             "coffee": false,
             "donuts": false,
@@ -49,57 +52,57 @@ export default class SettingsScreen extends React.Component {
             "markets": false,
             "locksmith": false,
             "photography": false,
-            "ice cream": false,
+            "ice_cream": false,
             "desserts": false,
             "hotels": false,
             "bars": false,
             "educational": false,
             "business": false,
             "bakery": false,
-            "food truck": false,
+            "food_truck": false,
             "delivery": false,
             "tea": false,
             "vegan": false,
             "vegetarian": false,
-            "gluten-free": false,
+            "gluten_free": false,
             "keto": false,
             "natural": false,
             "beauty": false,
             "grocer": false,
             "international": false,
-            "wine and spirits": false,
+            "wine_and_spirits": false,
             "hawaiian": false,
             "guatemalan": false,
             "steak": false,
             "breakfast": false,
-            "late-night": false,
-            "always-open": false,
+            "late_night": false,
+            "always_open": false,
             "specialty": false,
-            "lactose-free": false,
-            "locally sourced": false,
+            "lactose_free": false,
+            "locally_sourced": false,
             "diabetic": false,
             "halal": false,
             "kosher": false,
             "arts": false,
             "venues": false,
             "concerts": false,
-            "music stores": false,
-            "middle eastern": false,
-            "south american": false,
+            "music_stores": false,
+            "middle_eastern": false,
+            "south_american": false,
             "hookah": false,
             "tobacco": false,
             "ramen": false,
             "sushi": false,
-            "dim sum": false,
+            "dim_sum": false,
             "deli": false,
             "german": false,
             "french": false,
-            "flea market": false,
-            "farmers market": false,
-            "food bank": false,
+            "flea_market": false,
+            "farmers_market": false,
+            "food_bank": false,
             "charity": false,
-            "thrift store": false,
-            "pet store": false,
+            "thrift_store": false,
+            "pet_store": false,
           }
         }
         try {
@@ -117,6 +120,7 @@ export default class SettingsScreen extends React.Component {
     }
   }
   render() {
+    this.getPref();
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
