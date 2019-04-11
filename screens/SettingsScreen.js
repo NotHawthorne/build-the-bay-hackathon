@@ -123,7 +123,12 @@ export default class SettingsScreen extends React.Component {
     while (!this.state.apiResponse) {
       this.getPref();
     }
+    try {
     console.log("handleSwitch: " + JSON.stringify(this.apiResponse.body.thai));
+    } catch (e)
+    {
+        console.log(e);
+    }
   }
   render() {
     this.getPref();
