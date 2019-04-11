@@ -13,7 +13,6 @@ export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: '?!🍣🍕🌮🍮🍻🍦!?',
   };
-
   async getPref() {
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
@@ -137,7 +136,7 @@ export default class SettingsScreen extends React.Component {
            </Text>
            <Switch
             title="thai" onValueChange = {this.handleSwitch.bind(this)}/>
-           <Text>Response: {this.state.apiResponse.body.thai && JSON.stringify(this.state.apiResponse.body.thai)}</Text>
+           <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text>
          </View>
         </ScrollView>
     </View>
