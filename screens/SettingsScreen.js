@@ -120,6 +120,12 @@ export default class SettingsScreen extends React.Component {
       console.log(e);
     }
   }
+  async handleSwitch(value) {
+    while (this.state.apiResponse == null) {
+      this.getPref();
+    }
+    value ^= true;
+  }
   render() {
     this.getPref();
     return (
@@ -130,7 +136,7 @@ export default class SettingsScreen extends React.Component {
             [Insert Preference switches here]
            </Text>
            <Switch
-            title="thai" onValueChange = { if (!this.state.apiResponse) { this.getPref(); } this.state.apiResponse.body.thai ^= true; } value = {this.state.apiResponse.body.thai}/>
+            title="thai" onValueChange = {this.handleSwitch(this.state.apiResponse.body.thai)} value = {this.state.apiResponse.body.thai}/>
            <Text>Response: {this.state.apiResponse.body.thai && JSON.stringify(this.state.apiResponse.body.thai)}</Text>
          </View>
         </ScrollView>
