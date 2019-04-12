@@ -119,7 +119,7 @@ export default class SettingsScreen extends React.Component {
       console.log(e);
     }
   }
-  handleSwitch(switch) {
+  handleSwitch() {
     this.getPref()
     try {
       console.log("handleSwitch: " + JSON.stringify(this.apiResponse.body.thai));
@@ -129,6 +129,7 @@ export default class SettingsScreen extends React.Component {
     }
     return this.apiResponse.body.thai;
   }
+
   render() {
     this.getPref();
     return (
