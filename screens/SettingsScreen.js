@@ -17,7 +17,7 @@ export default class SettingsScreen extends React.Component {
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
-      console.log("Testing user tobacco: " + user.attributes + " is what we got.")
+      console.log("Testing user tobacco: " + user.attributes.email + " is what we got.")
       const apiResponse = await API.get("prefsCRUD", path);
       this.setState({apiResponse});
       console.log("response from getting note begin: " + JSON.stringify(this.state.apiResponse));
