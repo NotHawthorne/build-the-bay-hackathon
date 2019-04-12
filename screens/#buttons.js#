@@ -1,0 +1,83 @@
+import React, { Component } from 'react';
+import { Alert, AppRegistry, Platform, Button, ScrollView, StyleSheet, Image, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+
+export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
+    _onPressButton(){
+	Alert.alert ('Ya did the thing!')
+	    }
+    _onLongPressButton(){
+	Alert.alert('doin all the things? nice')
+	    }
+    render() {
+	return (
+		<View style={{}}>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>Deal of the Day</Text>
+         </View>
+       </TouchableHighlight>
+		<View style={{flex: 3, flexDirextion: 'row', alignItems: 'stretch'}}>
+		<View style={{height: 80, backgroundColor: 'powderblue'}} />
+		<View style={{height: 80, backgroundColor: 'skyblue'}} />
+		<View style={{height: 80, backgroundColor: 'steelblue'}} />
+       </View>
+       <ScrollView>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>we can edit all of this fairly easy</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>Use input text saved on our side?</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>click me</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>hold me</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>These ones move! 5</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>These ones move! 6</Text>
+         </View>
+       </TouchableHighlight>
+		<TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+		<View style={styles.button}>
+		<Text style={styles.buttonText}>These ones move! 7</Text>
+         </View>
+       </TouchableHighlight>
+       </ScrollView>
+       </View>
+		);
+    }
+}
+
+
+const styles = StyleSheet.create({
+	container: {
+	    paddingTop: 0,
+	    alignItems: 'center'
+	},
+	button: {
+	    marginBottom: 5,
+	    height: 200,
+	    alignItems: 'center',
+	    backgroundColor: '#000000'
+	},
+	buttonText: {
+	    fontSize: 20,
+	    padding: 80,
+	    color: 'white'
+	}
+    });
