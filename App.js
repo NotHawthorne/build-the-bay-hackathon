@@ -12,6 +12,7 @@ Amplify.configure(aws_exports);
 class App extends React.Component {
   state = {
     isLoadingComplete: false,
+    sw1: false,
   };
 
   render() {

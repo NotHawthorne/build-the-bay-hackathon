@@ -10,16 +10,46 @@ import {
 import Amplify, { API } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
 export default class SettingsScreen extends React.Component {
+  constructor() {
+	super();
+	this.state = {isChecked: false};
+	this.handleChecked = this.handleChecked.bind(this);
+  }
+  handleChecked() {
+	this.setState({isChecked: !this.state.isChecked});
+	try {
+		this.setPref(arguments[0]);
+    	} catch (e) {
+      		console.log(e);
+    	}
+  }
   static navigationOptions = {
     title: '?!🍣🍕🌮🍮🍻🍦!?',
   };
+  async setPref(field) {
+	user = await Auth.currentAuthenticatedUser();
+	const path = "/prefs/" + user.attributes.email;
+	console.log("attempt");
+	try {
+		const apiResponse = await API.get("prefsCRUD", path);
+		this.setState({apiResponse});
+		let newVals = {}
+		newVals.body = apiResponse[0];
+		newVals.body[field] = !newVals.body[field];
+		const apiRequest = await API.put("prefsCRUD", "/prefs", newVals);
+		this.setState({apiRequest});
+		console.log(apiRequest);
+	} catch (e) {
+		console.log(e);
+	}
+  }
   async getPref() {
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
-      console.log("Testing user tobacco: " + user.attributes.american + " is what we got.")
       const apiResponse = await API.get("prefsCRUD", path);
       this.setState({apiResponse});
+      console.log("Testing user tobacco: " + apiResponse[0].tobacco + " is what we got.")
       console.log("response from getting note begin: " + JSON.stringify(this.state.apiResponse));
       if (typeof apiResponse[0] == "undefined") {
         let newVals = {
@@ -120,15 +150,6 @@ export default class SettingsScreen extends React.Component {
       console.log(e);
     }
   }
-  handleSwitch() {
-    this.getPref()
-    try {
-      console.log("handleSwitch: " + JSON.stringify(this.state.apiResponse.body.thai));
-    } catch (e)
-    {
-      console.log(e);
-    }
-  }
 
   render() {
     return (
@@ -138,7 +159,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
             [Insert Preference switches here]
            </Text>
-           <Switch title="thai" onValueChange = {this.handleSwitch(this)}/>
+           <Switch title="thai" onValueChange={() => this.handleChecked("thai")}/>
            {/* <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text> */}
          </View>
         </ScrollView>

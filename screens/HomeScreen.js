@@ -152,6 +152,7 @@ export default class HomeScreen extends React.Component {
             "pet_store": false,
           }
         }
+	console.log(newVals);
         try {
           const pathTwo = "/prefs"
           const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
