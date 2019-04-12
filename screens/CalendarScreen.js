@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -14,22 +15,7 @@ export default class CalendarScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {/* Calendar layout */}
-        <Text>Calendar will end up here one day... but for now as a test... if we make long strings... what happens?</Text>
-        <View style={styles.tableHeader}>
-	        <View style={styles.tableTop}>
-            <Text>What?</Text>
-          </View>
-	        <View style={styles.tableTop}>
-            <Text>Yea</Text>
-          </View>
-	        <View style={styles.tableTop}> 
-            <Text>Meh</Text>
-          </View>
-	        <View style={styles.tableTop}>
-            <Text>Nah</Text>
-          </View>
-        </View>
+	    <Image source={require('assets/calendar.png')}/>
       </ScrollView>
     );
   }

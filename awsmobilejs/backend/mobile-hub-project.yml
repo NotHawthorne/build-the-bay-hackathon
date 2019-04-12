@@ -9,31 +9,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /prefs: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412064248.zip
+            codeFilename: uploads/prefs-20190412132653.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 7311jGRcnEEvyjYKlK+XN5Ymo+YPvz98JUf+M2QHuiw=
+            hashcode: tKQOm1pCiCOdIqKkJt1wEJwBon7NnsuvKlbKXSHSOC0=
             memorySize: '128'
-            modified: '2019-04-12T06:43:40.674+0000'
+            modified: '2019-04-12T13:27:39.824+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: l4R.ukWceUYUaLTwJkdoCEOo0p3LFW6b
+            version: uZGZt0.QuFfbHJo6_Qs05R57vpLQ.DwP
           '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412064248.zip
+            codeFilename: uploads/prefs-20190412132653.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 7311jGRcnEEvyjYKlK+XN5Ymo+YPvz98JUf+M2QHuiw=
+            hashcode: tKQOm1pCiCOdIqKkJt1wEJwBon7NnsuvKlbKXSHSOC0=
             memorySize: '128'
-            modified: '2019-04-12T06:43:40.674+0000'
+            modified: '2019-04-12T13:27:39.824+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: .4eHMTcpbwHEciafdAFHIOpazyaKcm8V
+            version: 5wJZWbavg2UC08DT28FMG3C9ivt.sFSp
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -70,15 +70,6 @@ features:
             tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
-              a: S
-            hashKeyName: a
-            hashKeyType: S
-            rangeKeyName: ''
-            rangeKeyType: ''
-            tableName: ___DYNAMIC_PREFIX___-test
-            tablePrivacy: public
-          - !com.amazonaws.mobilehub.v0.NoSQLTable 
-            attributes:
               email: S
               personId: S
               personName: S
@@ -96,6 +87,15 @@ features:
             rangeKeyName: personId
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              a: S
+            hashKeyName: a
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-test
             tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
@@ -118,5 +118,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-name: app-2019-04-07-01-37-51
+name: app-2019-04-06-22-43-18
 region: us-east-1
