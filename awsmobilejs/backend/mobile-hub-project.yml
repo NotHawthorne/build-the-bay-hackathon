@@ -2,6 +2,38 @@
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
+      businessesCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: businessesCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /businesses: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/businesses-20190412125243.zip
+            description: 'Handler for calls to resource path : /businesses/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: QiiYStxu2nNTkx57MRDB/72jlXSv5V5jZZbPDIbVE+o=
+            memorySize: '128'
+            modified: '2019-04-12T12:53:49.741+0000'
+            name: businesses
+            runtime: nodejs6.10
+            timeout: '3'
+            version: xBKJWlYXy_fmMxCxKKWhn67_8n4VWpQ5
+          '/businesses/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/businesses-20190412125243.zip
+            description: 'Handler for calls to resource path : /businesses/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: QiiYStxu2nNTkx57MRDB/72jlXSv5V5jZZbPDIbVE+o=
+            memorySize: '128'
+            modified: '2019-04-12T12:53:49.741+0000'
+            name: businesses
+            runtime: nodejs6.10
+            timeout: '3'
+            version: RcBnfeiwI0HZwYjGLJ9jSPzbzZvKXjTV
       prefsCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: prefsCRUD
@@ -9,31 +41,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /prefs: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412064248.zip
+            codeFilename: uploads/prefs-20190412130251.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 7311jGRcnEEvyjYKlK+XN5Ymo+YPvz98JUf+M2QHuiw=
+            hashcode: oEpSaC5V5cf1r8LW154gU35Ncvy/m9CLheCq3awKVBo=
             memorySize: '128'
-            modified: '2019-04-12T06:43:40.674+0000'
+            modified: '2019-04-12T13:03:45.582+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: l4R.ukWceUYUaLTwJkdoCEOo0p3LFW6b
+            version: VxOP7ndHSgpT1xR48Qj2HQtQeWyMMQhe
           '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412064248.zip
+            codeFilename: uploads/prefs-20190412130251.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 7311jGRcnEEvyjYKlK+XN5Ymo+YPvz98JUf+M2QHuiw=
+            hashcode: oEpSaC5V5cf1r8LW154gU35Ncvy/m9CLheCq3awKVBo=
             memorySize: '128'
-            modified: '2019-04-12T06:43:40.674+0000'
+            modified: '2019-04-12T13:03:45.582+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: .4eHMTcpbwHEciafdAFHIOpazyaKcm8V
+            version: cj3qEA7f41c1Rsmse9EfB1KKp_bb37E3
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -76,6 +108,93 @@ features:
             rangeKeyName: ''
             rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-test
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              address: S
+              african: BOOL
+              always_open: BOOL
+              american: BOOL
+              arts: BOOL
+              bakery: BOOL
+              bars: BOOL
+              beauty: BOOL
+              breakfast: BOOL
+              burgers: BOOL
+              business: BOOL
+              cafe: BOOL
+              charity: BOOL
+              chicken: BOOL
+              chinese: BOOL
+              coffee: BOOL
+              concerts: BOOL
+              deli: BOOL
+              delivery: BOOL
+              desserts: BOOL
+              diabetic: BOOL
+              dim_sum: BOOL
+              dine_in: BOOL
+              donuts: BOOL
+              educational: BOOL
+              farmers_market: BOOL
+              fast_food: BOOL
+              flea_market: BOOL
+              food_bank: BOOL
+              food_truck: BOOL
+              french: BOOL
+              german: BOOL
+              gluten_free: BOOL
+              grocer: BOOL
+              guatemalan: BOOL
+              halal: BOOL
+              hawaiian: BOOL
+              hookah: BOOL
+              hotels: BOOL
+              ice_cream: BOOL
+              international: BOOL
+              italian: BOOL
+              japanese: BOOL
+              keto: BOOL
+              korean: BOOL
+              kosher: BOOL
+              lactose_free: BOOL
+              late_night: BOOL
+              locally_sourced: BOOL
+              locksmith: BOOL
+              markets: BOOL
+              mexican: BOOL
+              middle_eastern: BOOL
+              music_stores: BOOL
+              name: S
+              natural: BOOL
+              no: S
+              persian: BOOL
+              pet_store: BOOL
+              photography: BOOL
+              pizza: BOOL
+              ramen: BOOL
+              sandwiches: BOOL
+              south_american: BOOL
+              specialty: BOOL
+              steak: BOOL
+              sushi: BOOL
+              tea: BOOL
+              thai: BOOL
+              thrift_store: BOOL
+              tobacco: BOOL
+              turkish: BOOL
+              vegan: BOOL
+              vegetarian: BOOL
+              venezuelan: BOOL
+              venues: BOOL
+              vietnamese: BOOL
+              wine_and_spirits: BOOL
+              wings: BOOL
+            hashKeyName: address
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-businesses
             tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
