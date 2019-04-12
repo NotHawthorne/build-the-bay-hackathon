@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
@@ -19,32 +20,23 @@ import { FileSystem } from 'expo'
 
 Amplify.configure(awsmobile);
 
-function intializeUser() {
-	user = Auth.currentAuthenticatedUser();
-	const path = "/prefs";
-	response = ""
-	try {
-		fs.readFile('../categories.txt', (err, data) => {
-			if (err) throw err;
-			let newVals = {
-				body: {
-					"email": user.attributes.email,
-					"likes": "",
-					"dislikes": "",
-					"neutral": data
-				}
-			}
-			try {
-				const apiResponse = API.put("prefsCRUD", path, newVals);
-				console.log("response from saving note: " + apiResponse);
-				response = apiResponse;
-			} catch (e) {
-				console.log(e);
-			}
-		})
-	} catch (e) {
-		console.log(e);
-	}
+var AWS = require('aws-sdk');
+AWS.config.update({
+    accessKeyId: "AKIA4ZYADIUICMHFBOVI",
+    secretAccessKey: "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",
+    "region": "us-east-1"
+});
+var docClient = new AWS.DynamoDB.DocumentClient({
+        dynamoDbCrc32: false
+});
+const viewObj = ({ name }) => {
+        return (
+        <TouchableHighlight underlayColor="white">
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>{name}</Text>
+          </View>
+        </TouchableHighlight>
+        );
 }
 
 export default class HomeScreen extends React.Component {
@@ -54,14 +46,31 @@ export default class HomeScreen extends React.Component {
 
   state = {
     apiResponse: null,
-    noteId: ''
+    noteId: '',
+    arr: []
   };
 
   handleChangeNoteId = (event) => {
     this.setState({noteId: event});
   }
-
+  getBusinesses = async () => {
+        const params = {
+                TableName: "app-mobilehub-427707375-businesses",
+        };
+        let scanResults = [
+                {}
+        ];
+        let items;
+        do {
+                items = await docClient.scan(params).promise();
+                items.Items.forEach((item) => scanResults.push(item));
+                params.ExclusiveStartKey = items.LastEvaluatedKey;
+        } while (typeof items.LastEvaluatedKey != "undefined");
+	scanResults.shift();
+	this.setState({arr: scanResults});
+  }
   async getNote() {
+    await this.getBusinesses();
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
@@ -169,82 +178,28 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    if (typeof this.state.arr[0] == "undefined") {
+	this.getNote();
+    }
+    let todoItems = this.state.arr.map(({address, name}) => {
+      return (
+	<TouchableHighlight underlayColor="white" key={address}>
+          <View style={styles.button} key={address}>
+            <Text style={styles.buttonText} key={address}>{address}</Text>
+          </View>
+        </TouchableHighlight>
+	);
+    });
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          {/* Testing Database Call Button */}
-          <View>
-            <Button title="Send Request" onPress={this.getNote.bind(this)} />
-            <Text>Response: {this.state.apiResponse && JSON.stringify(this.state.apiResponse)}</Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
+	  <View>
+		{todoItems}
+	  </View>
         </ScrollView>
       </View>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
@@ -334,4 +289,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
+  button: {
+    marginBottom: 5,
+    height: 200,
+    alignItems: 'center',
+    backgroundColor: '#000000'
+  },
+  buttonText: {
+    fontSize: 20,
+    padding: 80,
+    color: 'white'
+  }
 });
