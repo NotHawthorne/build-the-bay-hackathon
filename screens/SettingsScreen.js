@@ -17,9 +17,10 @@ export default class SettingsScreen extends React.Component {
     user = await Auth.currentAuthenticatedUser();
     const path = "/prefs/" + user.attributes.email;
     try {
+      console.log("Testing user tobacco: " + user.attributes.tobacco + " is what we got.")
       const apiResponse = await API.get("prefsCRUD", path);
-      console.log("response from getting note begin: " + JSON.stringify(this.apiResponse));
       this.setState({apiResponse});
+      console.log("response from getting note begin: " + JSON.stringify(this.state.apiResponse));
       if (typeof apiResponse[0] == "undefined") {
         let newVals = {
           body: {
@@ -107,8 +108,8 @@ export default class SettingsScreen extends React.Component {
         try {
           const pathTwo = "/prefs"
           const apiResponseTwo = await API.put("prefsCRUD", pathTwo, newVals);
-          this.setState({apiResponseTwo});
-          console.log("response from apiRepsonseTwo: " + JSON.stringify(this.apiResponseTwo));
+          this.setState({ apiResponse: apiResponseTwo});
+          console.log("response from apiResponseTwo: " + JSON.stringify(this.apiResponseTwo));
         }
         catch (e) {
           console.log(e);
