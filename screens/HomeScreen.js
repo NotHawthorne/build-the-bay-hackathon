@@ -23,8 +23,8 @@ Amplify.configure(awsmobile);
 
 var AWS = require('aws-sdk');
 AWS.config.update({
-    accessKeyId: 'AKIA4ZYADIUIPAMVVV56',
-    secretAccessKey: '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',
+    accessKeyId: 'AKIA4ZYADIUIBHKBBB7W',
+    secretAccessKey: '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',
     region: 'us-east-1'
 });
 
@@ -210,10 +210,10 @@ export default class HomeScreen extends React.Component {
 	);
     });
     return (
-	    <View style={styles.container}>
+	    <View style={{flex: 1}}>
 	    <TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="red">
 	    <View style={styles.buttonT}>
-	    <Text style={styles.buttonText}>Deal of the Day</Text>
+	    <Text style={styles.buttonTText}>Deal of the Day</Text>
 	    </View>
 	            </TouchableHighlight> 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -229,7 +229,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   developmentModeText: {
     marginBottom: 20,
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 0,
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -320,8 +320,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'skyblue'
   },
    buttonT: {
+   paddingTop: 40,
     marginBottom: 5,
-    height: 70,
+    height: 110,
     alignItems: 'center',
     backgroundColor: 'blue'
   },
@@ -330,5 +331,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 40,
     color: '#202020'
-  }
+  },
+   buttonTText:{
+	fontSize: 30,
+	padding: 40,
+	color : 'white'
+}
 });
