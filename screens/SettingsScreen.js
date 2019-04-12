@@ -129,6 +129,7 @@ export default class SettingsScreen extends React.Component {
     {
         console.log(e);
     }
+    return this.apiResponse.body.thai;
   }
   render() {
     this.getPref();
@@ -140,7 +141,7 @@ export default class SettingsScreen extends React.Component {
             [Insert Preference switches here]
            </Text>
            <Switch
-            title="thai" onValueChange = {this.handleSwitch.bind(this)}/>
+            title="thai" onValueChange = {value = this.handleSwitch.bind(this)}/>
            {/* <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text> */}
          </View>
         </ScrollView>
