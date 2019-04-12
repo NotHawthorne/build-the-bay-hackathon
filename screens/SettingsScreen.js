@@ -7,8 +7,8 @@ import {
   View,
  } from 'react-native';
 
- import Amplify, { API } from 'aws-amplify';
- import { Auth } from 'aws-amplify';
+import Amplify, { API } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: '?!🍣🍕🌮🍮🍻🍦!?',
@@ -119,15 +119,13 @@ export default class SettingsScreen extends React.Component {
       console.log(e);
     }
   }
-  async handleSwitch() {
-    while (!this.state.apiResponse) {
-      this.getPref();
-    }
+  handleSwitch(switch) {
+    this.getPref()
     try {
-    console.log("handleSwitch: " + JSON.stringify(this.apiResponse.body.thai));
+      console.log("handleSwitch: " + JSON.stringify(this.apiResponse.body.thai));
     } catch (e)
     {
-        console.log(e);
+      console.log(e);
     }
     return this.apiResponse.body.thai;
   }
@@ -140,8 +138,7 @@ export default class SettingsScreen extends React.Component {
            <Text style={styles.settingsText}>
             [Insert Preference switches here]
            </Text>
-           <Switch
-            title="thai" onValueChange = {value = this.handleSwitch.bind(this)}/>
+           <Switch title="thai" onValueChange = {this.handleSwitch(this)}/>
            {/* <Text>Response: {JSON.stringify(this.state.apiResponse.body.thai)}</Text> */}
          </View>
         </ScrollView>
