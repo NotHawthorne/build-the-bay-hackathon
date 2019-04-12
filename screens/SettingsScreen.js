@@ -16,7 +16,7 @@ export default class SettingsScreen extends React.Component {
 	this.handleChecked = this.handleChecked.bind(this);
   }
   handleChecked() {
-	this.setState({isChecked: !this.state.isChecked});
+	this.state[arguments[0]] = !this.state[arguments[0]];
 	try {
 		this.setPref(arguments[0]);
     	} catch (e) {

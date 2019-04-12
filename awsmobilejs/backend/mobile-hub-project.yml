@@ -9,31 +9,63 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /businesses: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/businesses-20190412125243.zip
+            codeFilename: uploads/businesses-20190412141411.zip
             description: 'Handler for calls to resource path : /businesses/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: QiiYStxu2nNTkx57MRDB/72jlXSv5V5jZZbPDIbVE+o=
+            hashcode: 298BKCmBv2h5Qnk96EAOKY1f6t7CzSDWWXbnA7le5bQ=
             memorySize: '128'
-            modified: '2019-04-12T12:53:49.741+0000'
+            modified: '2019-04-12T14:15:44.481+0000'
             name: businesses
             runtime: nodejs6.10
             timeout: '3'
-            version: xBKJWlYXy_fmMxCxKKWhn67_8n4VWpQ5
+            version: BhHr38ryi63e1Je7ooGfOBEtOnnN36k_
           '/businesses/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/businesses-20190412125243.zip
+            codeFilename: uploads/businesses-20190412141411.zip
             description: 'Handler for calls to resource path : /businesses/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: QiiYStxu2nNTkx57MRDB/72jlXSv5V5jZZbPDIbVE+o=
+            hashcode: 298BKCmBv2h5Qnk96EAOKY1f6t7CzSDWWXbnA7le5bQ=
             memorySize: '128'
-            modified: '2019-04-12T12:53:49.741+0000'
+            modified: '2019-04-12T14:15:44.481+0000'
             name: businesses
             runtime: nodejs6.10
             timeout: '3'
-            version: RcBnfeiwI0HZwYjGLJ9jSPzbzZvKXjTV
+            version: 8mKaLywN3NBssTRhodLQn_kjw2QWIIgH
+      dealsCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: dealsCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /deals: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/deals-20190412141411.zip
+            description: 'Handler for calls to resource path : /deals/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: U7yhCZN1wGos4omnyo0cNSt2ZhmbsJtlfDeaUVu28CQ=
+            memorySize: '128'
+            modified: '2019-04-12T14:15:48.260+0000'
+            name: deals
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 4VYqhcqyhQOk7cXUPXFEjRZUKGgaqB.l
+          '/deals/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/deals-20190412141411.zip
+            description: 'Handler for calls to resource path : /deals/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: U7yhCZN1wGos4omnyo0cNSt2ZhmbsJtlfDeaUVu28CQ=
+            memorySize: '128'
+            modified: '2019-04-12T14:15:48.260+0000'
+            name: deals
+            runtime: nodejs6.10
+            timeout: '3'
+            version: nXhx7vka6wIXO3QwB_X7WYAjUEF3I8U1
       prefsCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: prefsCRUD
@@ -41,31 +73,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /prefs: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412130251.zip
+            codeFilename: uploads/prefs-20190412142000.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: oEpSaC5V5cf1r8LW154gU35Ncvy/m9CLheCq3awKVBo=
+            hashcode: KLlvcdowFhrhazHkN66lEnjpIXDSqeNWUliHJJS3m+g=
             memorySize: '128'
-            modified: '2019-04-12T13:03:45.582+0000'
+            modified: '2019-04-12T14:21:02.346+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: VxOP7ndHSgpT1xR48Qj2HQtQeWyMMQhe
+            version: WnQnOw_W9gLJClYWtsCSZOdekBr.XnUC
           '/prefs/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/prefs-20190412130251.zip
+            codeFilename: uploads/prefs-20190412142000.zip
             description: 'Handler for calls to resource path : /prefs/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: oEpSaC5V5cf1r8LW154gU35Ncvy/m9CLheCq3awKVBo=
+            hashcode: KLlvcdowFhrhazHkN66lEnjpIXDSqeNWUliHJJS3m+g=
             memorySize: '128'
-            modified: '2019-04-12T13:03:45.582+0000'
+            modified: '2019-04-12T14:21:02.346+0000'
             name: prefs
             runtime: nodejs6.10
             timeout: '3'
-            version: cj3qEA7f41c1Rsmse9EfB1KKp_bb37E3
+            version: PtyhQcfe7gpwmSH6vgsY3rKtFS_tjX_1
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -195,6 +227,18 @@ features:
             rangeKeyName: ''
             rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-businesses
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              address: S
+              date: S
+              desc: S
+              name: S
+            hashKeyName: address
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-deals
             tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:

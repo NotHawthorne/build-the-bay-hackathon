@@ -66,6 +66,7 @@ export default class HomeScreen extends React.Component {
                 items.Items.forEach((item) => scanResults.push(item));
                 params.ExclusiveStartKey = items.LastEvaluatedKey;
         } while (typeof items.LastEvaluatedKey != "undefined");
+	scanResults.shift();
 	this.setState({arr: scanResults});
   }
   async getNote() {
