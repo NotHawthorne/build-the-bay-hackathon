@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   Button,
   Image,
   Platform,
@@ -22,9 +23,9 @@ Amplify.configure(awsmobile);
 
 var AWS = require('aws-sdk');
 AWS.config.update({
-    accessKeyId: "AKIA4ZYADIUIP3RXVLHR",
-    secretAccessKey: "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",
-    "region": "us-east-1"
+    accessKeyId: 'AKIA4ZYADIUIPAMVVV56',
+    secretAccessKey: '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',
+    region: 'us-east-1'
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient({
@@ -50,13 +51,26 @@ export default class HomeScreen extends React.Component {
     noteId: '',
     arr: []
   };
-
+    _onPressButton(){
+	Alert.alert ('Ya did the thing!')
+    }
+    _onLongPressButton(){
+	Alert.alert('button?', 'how do you like this button?',
+		    [
+			{text: 'Neautral', onPress: () => console.log('meh')},
+			{
+			    text: 'Dislike', onPress: () => console.log('no'),
+			    style: 'cancel'
+			},
+			{text: 'Like', onPress: () => console.log('Oakeye')}
+		    ])
+    }
   handleChangeNoteId = (event) => {
     this.setState({noteId: event});
   }
   getBusinesses = async () => {
         const params = {
-                TableName: "app-mobilehub-427707375-businesses",
+                TableName: "app-mobilehub-1215033787-test",
         };
         let scanResults = [
                 {}
@@ -76,7 +90,6 @@ export default class HomeScreen extends React.Component {
     const path = "/prefs/" + user.attributes.email;
     try {
       const apiResponse = await API.get("prefsCRUD", path);
-      console.log("response from getting note: " + JSON.stringify(apiResponse));
       this.setState({apiResponse});
       if (typeof apiResponse[0] == "undefined") {
         let newVals = {
@@ -182,17 +195,27 @@ export default class HomeScreen extends React.Component {
     if (typeof this.state.arr[0] == "undefined") {
 	this.getNote();
     }
-    let todoItems = this.state.arr.map(({address, name}) => {
+      let todoItems = this.state.arr.map(({a, name, desc, date}) => {
       return (
-	<TouchableHighlight underlayColor="white" key={address}>
-          <View style={styles.button} key={address}>
-            <Text style={styles.buttonText} key={address}>{address}</Text>
+	<TouchableHighlight underlayColor="white" key={a}>
+          <View style={styles.button} key={a}>
+              <Text style={styles.buttonText} key={a}>
+	      {a}{"\n"}
+	  {name}{"\n"}
+	  {desc}{"\n"}
+	  {date}
+	  </Text>
           </View>
         </TouchableHighlight>
 	);
     });
     return (
-      <View style={styles.container}>
+	    <View style={styles.container}>
+	    <TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="red">
+	    <View style={styles.buttonT}>
+	    <Text style={styles.buttonText}>Deal of the Day</Text>
+	    </View>
+	            </TouchableHighlight> 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 	  <View>
 		{todoItems}
@@ -294,11 +317,18 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     height: 200,
     alignItems: 'center',
-    backgroundColor: '#000000'
+    backgroundColor: 'skyblue'
   },
+   buttonT: {
+    marginBottom: 5,
+    height: 70,
+    alignItems: 'center',
+    backgroundColor: 'blue'
+  },
+
   buttonText: {
     fontSize: 20,
-    padding: 80,
-    color: 'white'
+    padding: 40,
+    color: '#202020'
   }
 });
