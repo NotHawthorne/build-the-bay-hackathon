@@ -27,7 +27,7 @@ export default class SettingsScreen extends React.Component {
     	}
   }
   static navigationOptions = {
-    title: '?!🍣🍕🌮🍮🍻🍦!?',
+    title: 'Preferences',
   };
   async setPref(field) {
 	user = await Auth.currentAuthenticatedUser();
@@ -154,167 +154,163 @@ export default class SettingsScreen extends React.Component {
     }
   }
 
-    render() {
+  render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-         <View style={styles.container}>
-           <Text style={styles.settingsText}>
-            [Insert Preference switches  here]
-        </Text>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>African</Text>
             <Switch title="african" onValueChange={() => this.handleChecked("african")} value={this.state.african}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Always Open</Text>
 	    <Switch title="always_open" onValueChange={() => this.handleChecked("always_open")} value={this.state.always_open}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>American</Text>
 	    <Switch title="american" onValueChange={() => this.handleChecked("american")} value={this.state.american}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Arts</Text>
 	    <Switch title="arts" onValueChange={() => this.handleChecked("arts")} value={this.state.arts}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Bakery</Text>
 	    <Switch title="bakery" onValueChange={() => this.handleChecked("bakery")} value={this.state.bakery}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Bars</Text>
 	    <Switch title="bars" onValueChange={() => this.handleChecked("bars")} value={this.state.bars}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Beauty</Text>
 	    <Switch title="beauty" onValueChange={() => this.handleChecked("beauty")} value={this.state.beauty}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Breakfast</Text>
 	    <Switch title="breakfast" onValueChange={() => this.handleChecked("breakfast")} value={this.state.breakfast}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Burgers</Text>
 	    <Switch title="burgers" onValueChange={() => this.handleChecked("burgers")} value={this.state.burgers}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Non-Food Businesses</Text>
 	    <Switch title="business" onValueChange={() => this.handleChecked("business")} value={this.state.business}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Cafes</Text>
 	    <Switch title="cafe" onValueChange={() => this.handleChecked("cafe")} value={this.state.cafe}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Charities</Text>
 	    <Switch title="charity" onValueChange={() => this.handleChecked("charity")} value={this.state.charity}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Chicken</Text>
 	    <Switch title="chicken" onValueChange={() => this.handleChecked("chicken")} value={this.state.chicken}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Chinese</Text>
 	    <Switch title="chinese" onValueChange={() => this.handleChecked("chinese")} value={this.state.chinese}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Coffee</Text>
 	    <Switch title="coffee" onValueChange={() => this.handleChecked("coffee")} value={this.state.coffee}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Concerts</Text>
 	    <Switch title="concerts" onValueChange={() => this.handleChecked("concerts")} value={this.state.concerts}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Deli</Text>
 	    <Switch title="deli" onValueChange={() => this.handleChecked("deli")} value={this.state.deli}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Delivery</Text>
 	    <Switch title="delivery" onValueChange={() => this.handleChecked("delivery")} value={this.state.delivery}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Desserts</Text>
 	    <Switch title="desserts" onValueChange={() => this.handleChecked("desserts")} value={this.state.desserts}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Diabetic Options</Text>
 	    <Switch title="diabetic" onValueChange={() => this.handleChecked("diabetic")} value={this.state.diabetic}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Dim Sum</Text>
             <Switch title="dim_sum" onValueChange={() => this.handleChecked("dim_sum")} value={this.state.dim_sum}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Dine In</Text>
 	    <Switch title="dine_in" onValueChange={() => this.handleChecked("dine_in")} value={this.state.dine_in}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Donuts</Text>
 	    <Switch title="donuts" onValueChange={() => this.handleChecked("donuts")} value={this.state.donuts}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Education</Text>
 	    <Switch title="educational" onValueChange={() => this.handleChecked("educational")} value={this.state.educational}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Farmers Markets</Text>
 	    <Switch title="farmers_market" onValueChange={() => this.handleChecked("farmers_market")} value={this.state.farmers_market}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Fast Food</Text>
 	    <Switch title="fast_food" onValueChange={() => this.handleChecked("fast_food")} value={this.state.fast_food}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Flea Markets</Text>
 	    <Switch title="flea_market" onValueChange={() => this.handleChecked("flea_market")} value={this.state.flea_market}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Food Bank</Text>
 	    <Switch title="food_bank" onValueChange={() => this.handleChecked("food_bank")} value={this.state.food_bank}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Food Trucks</Text>
 	    <Switch title="food_truck" onValueChange={() => this.handleChecked("food_truck")} value={this.state.food_truck}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>French</Text>
 	    <Switch title="french" onValueChange={() => this.handleChecked("french")} value={this.state.french}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>German</Text>
 	    <Switch title="german" onValueChange={() => this.handleChecked("german")} value={this.state.german}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Gluten Free Options</Text>
 	    <Switch title="gluten_free" onValueChange={() => this.handleChecked("gluten_free")} value={this.state.gluten_free}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Grocery Stores</Text>
 	    <Switch title="grocer" onValueChange={() => this.handleChecked("grocer")} value={this.state.grocer}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Guatemalan</Text>
 	    <Switch title="guatemalan" onValueChange={() => this.handleChecked("guatemalan")} value={this.state.guatemalan}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Halal Options</Text>
 	    <Switch title="halal" onValueChange={() => this.handleChecked("halal")} value={this.state.halal}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Hawaiian</Text>
 	    <Switch title="hawaiian" onValueChange={() => this.handleChecked("hawaiian")} value={this.state.hawaiian}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Hookah</Text>
 	    <Switch title="hookah" onValueChange={() => this.handleChecked("hookah")} value={this.state.hookah}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Hotels and Lodgings</Text>
 	    <Switch title="hotels" onValueChange={() => this.handleChecked("hotels")} value={this.state.hotels}/>
-    	    </View>
-	    <View style={{flex: 1, flexDirection: 'row' }}>
+    	  </View>
+	  <View style={{flex: 1, flexDirection: 'row' }}>
 	    <Text>Ice Cream</Text>
 	    <Switch title="ice_cream" onValueChange={() => this.handleChecked("ice_cream")} value={this.state.ice_cream}/>
     	    </View>
@@ -466,7 +462,6 @@ export default class SettingsScreen extends React.Component {
 	    <Text>Wings</Text>
 	    <Switch title="wings" onValueChange={() => this.handleChecked("wings")} value={this.state.wings}/>
 	    </View>
-         </View>
         </ScrollView>
     </View>
     );

@@ -14,8 +14,8 @@ export default class CalendarScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-	    <Image source={require('assets/images/calendar.png')}/>
+    <ScrollView style={styles.container}>
+	    <Image style={styles.tableTop} source={require('../assets/images/calendar.png')}/>
       </ScrollView>
     );
   }

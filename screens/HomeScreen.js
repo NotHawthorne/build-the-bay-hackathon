@@ -22,10 +22,11 @@ Amplify.configure(awsmobile);
 
 var AWS = require('aws-sdk');
 AWS.config.update({
-    accessKeyId: "AKIA4ZYADIUICMHFBOVI",
-    secretAccessKey: "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",
+    accessKeyId: "AKIA4ZYADIUIP3RXVLHR",
+    secretAccessKey: "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",
     "region": "us-east-1"
 });
+
 var docClient = new AWS.DynamoDB.DocumentClient({
         dynamoDbCrc32: false
 });
