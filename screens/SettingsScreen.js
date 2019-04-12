@@ -131,7 +131,6 @@ export default class SettingsScreen extends React.Component {
   }
 
   render() {
-    this.getPref();
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
