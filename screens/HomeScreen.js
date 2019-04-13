@@ -23,8 +23,8 @@ Amplify.configure(awsmobile);
 
 var AWS = require('aws-sdk');
 AWS.config.update({
-    accessKeyId: 'AKIA4ZYADIUIFAN23BSJ',
-    secretAccessKey: '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',
+    accessKeyId: '',
+    secretAccessKey: '',
     region: 'us-east-1'
 });
 
